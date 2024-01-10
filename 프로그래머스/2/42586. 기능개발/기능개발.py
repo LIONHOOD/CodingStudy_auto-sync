@@ -1,8 +1,9 @@
 def solution(progresses, speeds):
-    import math
-    from collections import Counter
-    due = [math.ceil((100-p)/s) for p,s in zip(progresses,speeds)]
-    for i in range(1,len(due)):
-        if due[i-1]>due[i]:
-            due[i] = due[i-1]
-    return list(Counter(due).values())
+    R = []
+    for p,s in zip(progresses, speeds):
+        d = -((p-100)//s)
+        if not R or R[-1][0]<d:
+            R.append([d,1])
+        else:
+            R[-1][1] += 1
+    return [r[1] for r in R]
