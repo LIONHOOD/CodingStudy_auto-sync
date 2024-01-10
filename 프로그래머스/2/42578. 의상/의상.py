@@ -1,11 +1,6 @@
 def solution(clothes):
-    T = {}
-    for name,kind in clothes:
-        if kind in T:
-            T[kind].append(name)
-        else:
-            T[kind] = [name]
-    answer = 1
-    for k in T:
-        answer *= (len(T[k])+1)
-    return answer-1
+    from collections import Counter
+    from functools import reduce
+    T = Counter([c[1] for c in clothes])
+    answer = reduce(lambda x,y:x*(y+1), T.values(), 1)-1
+    return answer
