@@ -1,3 +1,2 @@
 def solution(sizes):
-    m = [(max(s),min(s)) for s in sizes]
-    return max(max(m))*max(map(lambda x:x[1], m))
+    return max(max(s) for s in sizes)*max(min(s) for s in sizes)
