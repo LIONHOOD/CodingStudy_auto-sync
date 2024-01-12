@@ -1,7 +1,2 @@
-def solution(word):
-    P = {a:i for i,a in enumerate('AEIOU')}
-    answer = len(word)
-    m = [781, 156, 31, 6, 1]
-    for i in range(len(word)):
-        answer += P[word[i]]*m[i]
-    return answer
+from itertools import product as P
+solution = lambda word:sorted(''.join(p) for i in range(5) for p in P('AEIOU', repeat=i+1)).index(word)+1
