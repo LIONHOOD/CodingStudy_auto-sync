@@ -1,11 +1,21 @@
+# 정답
 def solution(priorities, location):
-    Q = [(l,p) for l,p in enumerate(priorities)]
-    answer = 0
-    while True:
-        c = Q.pop(0)
-        if any(c[1]<q[1] for q in Q):
-            Q.append(c)
+    priorities[location] = str(priorities[location])
+    answer = 1
+    while len(priorities)>0:
+        if isinstance(priorities[0],str):
+            tmp = int(priorities[0]) 
         else:
-            answer += 1
-            if c[0]==location:
+            tmp = priorities[0]
+        for p in priorities[1:]:
+            if isinstance(p,str):
+                p = int(p)
+            if tmp<p:
+                priorities.append(priorities.pop(0))
+                break
+        else:
+            if isinstance(priorities[0],str):
                 return answer
+            else:
+                priorities.pop(0)
+                answer += 1
