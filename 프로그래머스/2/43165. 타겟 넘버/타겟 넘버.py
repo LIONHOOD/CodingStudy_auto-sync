@@ -1,7 +1,14 @@
+answer = 0
 def solution(numbers, target):
-    from itertools import product
-    answer = 0 
-    for p in product([1,-1], repeat=len(numbers)):
-        if target==sum(s*n for s,n in zip(p, numbers)):
-            answer += 1
+    n = len(numbers)
+    def dfs(c,i):
+        global answer 
+        if i<n:
+            dfs(c+numbers[i],i+1)
+            dfs(c-numbers[i],i+1)
+        else:
+            # global answer
+            answer += [0,1][c==target]
+            return 
+    dfs(0,0)
     return answer
