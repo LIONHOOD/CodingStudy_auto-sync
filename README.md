@@ -1,2 +1,2 @@
 # CodingStudy_auto-sync
-This is a auto push repository created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+코딩 공부를 기록합니다.
