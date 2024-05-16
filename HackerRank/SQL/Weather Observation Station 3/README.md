@@ -1,4 +1,4 @@
-# Japanese Cities' Attributes
+# Weather Observation Station 3
 
 [문제 링크](https://www.hackerrank.com/challenges/weather-observation-station-3/problem?isFullScreen=true)
 
